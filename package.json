@@ -1,7 +1,7 @@
 {
   "name": "crud-clubes-back",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "https://github.com/fedeesti/crud-clubes-back.git",
   "author": "fedeesti <fede.estigarribia@hotmail.com>",
   "license": "MIT",
