@@ -1,6 +1,6 @@
 import teams from '../../data/equipos.db.json';
-import { CreateTeamResponse, Team } from '../types/team';
-import { mapPostResponseToTeam } from '../models/team.mapper';
+import { Team } from '../types/team';
+import { mapPostResponseToTeam } from '../models/teamMapper';
 
 export default class TeamServices {
   teams: Team[];
@@ -19,7 +19,7 @@ export default class TeamServices {
     return team;
   }
 
-  async createTeam(teamData: CreateTeamResponse) {
+  async createTeam(teamData: Team) {
     const newTeam = mapPostResponseToTeam(teamData);
     this.teams.push(newTeam);
 
