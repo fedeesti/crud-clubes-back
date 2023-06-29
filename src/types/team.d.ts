@@ -1,5 +1,5 @@
 export interface Team {
-  id: number;
+  id?: number;
   area: Area;
   name: string;
   shortName: string;
@@ -16,21 +16,6 @@ export interface Team {
 }
 
 interface Area {
-  id: number;
-  name: string;
-}
-export interface CreateTeamResponse {
   id?: number;
-  area: Omit<Area, 'id'>;
   name: string;
-  shortName: string;
-  tla: string;
-  crestUrl: string;
-  address?: string;
-  phone?: string;
-  website?: string;
-  email?: string;
-  founded?: number;
-  clubColors: string;
-  venue?: string;
 }
