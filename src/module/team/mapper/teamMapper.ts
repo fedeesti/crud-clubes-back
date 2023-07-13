@@ -1,7 +1,7 @@
 import { CreateTeamResponse, Team } from '../types/team';
 import { findCountryId, generateId } from '../utils/team.utils';
 
-export function mapPostResponseToTeam(teamData: CreateTeamResponse | Team): Team {
+export function fromDataToEntity(teamData: CreateTeamResponse | Team): Team {
   const newTeam = {
     id: teamData.id ? teamData.id : generateId(),
     area: {

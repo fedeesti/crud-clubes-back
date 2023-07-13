@@ -1,7 +1,7 @@
 import request, { SuperTest, Test } from 'supertest';
 import e from 'express';
 import { Server } from 'http';
-import { createApp } from '../app';
+import { createApp } from '../../app';
 
 let app: e.Express;
 let server: Server;

@@ -1,8 +1,8 @@
 import express, { Express } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import apiRouter from './routes/index.routes';
-import { errorHandler } from './middlewares/error.handler';
+import apiRouter from './module/team/routes/index.routes';
+import { errorHandler } from './module/team/middlewares/errorHandler';
 
 export function createApp() {
   const app: Express = express();

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response, NextFunction } from 'express';
-import CustomError from '../models/customError';
-import ValidationError from '../models/validationError';
+import CustomError from '../../../models/customError';
+import ValidationError from '../../../models/validationError';
 
 export function errorHandler(err: Error, _req: Request, res: Response, _next: NextFunction) {
   if (err instanceof ValidationError) {
