@@ -1,6 +1,6 @@
-import teams from '../../data/equipos.db.json';
+import teams from '../../../../data/equipos.db.json';
+import { fromDataToEntity } from '../mapper/team.mapper';
 import { Team } from '../types/team';
-import { mapPostResponseToTeam } from '../models/teamMapper';
 
 export default class TeamServices {
   teams: Team[];
@@ -20,7 +20,7 @@ export default class TeamServices {
   }
 
   async createTeam(teamData: Team) {
-    const newTeam = mapPostResponseToTeam(teamData);
+    const newTeam = fromDataToEntity(teamData);
     this.teams.push(newTeam);
 
     return 'The team has been created successfully';
@@ -30,7 +30,7 @@ export default class TeamServices {
     const index = this.teams.findIndex((team) => team.id === id);
     const team = this.teams[index];
 
-    const updateTeam = mapPostResponseToTeam({ ...team, ...fieldsToUpdate });
+    const updateTeam = fromDataToEntity({ ...team, ...fieldsToUpdate });
     this.teams[index] = updateTeam;
 
     return `the team with ID: ${id} has been updated`;
