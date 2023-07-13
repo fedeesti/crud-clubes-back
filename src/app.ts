@@ -5,7 +5,7 @@ import DIContainer from 'rsdi';
 
 import { configureDI } from './config/di';
 import { initTeamModule } from './module/team/module';
-import { errorHandler } from './module/team/middlewares/error.handler';
+import { errorHandler } from './module/team/middlewares/errorHandler';
 
 export function createApp() {
   const app: Express = express();

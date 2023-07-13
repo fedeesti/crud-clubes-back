@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import teams from '../../../../data/equipos.db.json';
 import CustomError from '../../error/customError';
 
+
 export function validateId(req: Request, _res: Response, next: NextFunction) {
   const id = Number(req.params.id);
 
