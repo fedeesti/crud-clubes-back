@@ -1,7 +1,10 @@
 import express, { Express } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import apiRouter from './module/team/routes/index.routes';
+import DIContainer from 'rsdi';
+
+import { configureDI } from './config/di';
+import { initTeamModule } from './module/team/module';
 import { errorHandler } from './module/team/middlewares/errorHandler';
 
 export function createApp() {
@@ -10,7 +13,11 @@ export function createApp() {
   app.use(helmet());
   app.use(cors());
   app.use(express.json());
-  app.use('/api/v1', apiRouter);
+
+  const diContainer: DIContainer = configureDI();
+
+  initTeamModule(app, diContainer);
+
   app.use(errorHandler);
 
   return app;
