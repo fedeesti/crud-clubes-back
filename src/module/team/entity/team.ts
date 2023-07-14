@@ -1,9 +1,7 @@
-type Area = {
-  id: number;
-  name: string;
-};
+import { Area } from '../types/team';
 
 export class Team {
+  lastUpdated: string;
   constructor(
     public id: number,
     public area: Area,
@@ -11,19 +9,19 @@ export class Team {
     public shortName: string,
     public tla: string,
     public crestUrl: string,
-    public address: string,
-    public phone: string,
-    public website: string,
-    public email: string,
-    public founded: number,
+    public address: string | null,
+    public phone: string | null,
+    public website: string | null,
+    public email: string | null,
+    public founded: number | null,
     public clubColors: string,
-    public venue: string,
+    public venue: string | null,
   ) {
     this.id = id;
     this.area = area;
     this.name = name;
     this.shortName = shortName;
-    this.tla = tla;
+    this.tla = tla.toUpperCase();
     this.crestUrl = crestUrl;
     this.address = address;
     this.phone = phone;
@@ -32,5 +30,6 @@ export class Team {
     this.founded = founded;
     this.clubColors = clubColors;
     this.venue = venue;
+    this.lastUpdated = new Date().toISOString();
   }
 }

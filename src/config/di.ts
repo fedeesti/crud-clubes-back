@@ -1,10 +1,10 @@
 import DIContainer, { object, use } from 'rsdi';
-import { TeamController, TeamServices } from '../module/team/module';
+import { TeamController, TeamService } from '../module/team/module';
 
 function addTeamModuleDefinitions(container: DIContainer): void {
   container.add({
-    [TeamServices.name]: object(TeamServices),
-    [TeamController.name]: object(TeamController).construct(use(TeamServices)),
+    [TeamService.name]: object(TeamService),
+    [TeamController.name]: object(TeamController).construct(use(TeamService)),
   });
 }
 

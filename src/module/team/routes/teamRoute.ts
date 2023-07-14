@@ -1,24 +1,21 @@
-import { Router } from 'express';
+import { Express } from 'express';
 import { checkSchema } from 'express-validator';
 import { createTeamSchema, updateTeamSchema } from '../schemas/teamSchema';
 import { validatorSchema } from '../middlewares/validatorSchema';
 import { validateId } from '../middlewares/validateId';
-import { TeamController } from '../controller/teamController';
-import TeamService from '../service/teamServices';
+import { TeamController } from '../module';
 
-const router: Router = Router();
-const service = new TeamService();
-const teamController = new TeamController(service);
+const ROUTE_BASE = '/api/v1/teams';
 
-router
-  .route('/')
-  .get(teamController.index.bind(teamController))
-  .post(checkSchema(createTeamSchema), validatorSchema, teamController.create.bind(teamController));
+export function configureRoutes(app: Express, teamController: TeamController) {
+  app
+    .route(`${ROUTE_BASE}/`)
+    .get(teamController.index.bind(teamController))
+    .post(checkSchema(createTeamSchema), validatorSchema, teamController.create.bind(teamController));
 
-router
-  .route('/:id')
-  .get(validateId, teamController.view.bind(teamController))
-  .put(validateId, checkSchema(updateTeamSchema), validatorSchema, teamController.update.bind(teamController))
-  .delete(validateId, teamController.delete.bind(teamController));
-
-export default router;
+  app
+    .route(`${ROUTE_BASE}/:id`)
+    .get(validateId, teamController.view.bind(teamController))
+    .put(validateId, checkSchema(updateTeamSchema), validatorSchema, teamController.update.bind(teamController))
+    .delete(validateId, teamController.delete.bind(teamController));
+}

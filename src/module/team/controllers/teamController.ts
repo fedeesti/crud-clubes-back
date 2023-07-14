@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
-import TeamServices from '../services/teamServices';
+import { TeamService } from '../service/teamService';
 import { Team } from '../types/team';
 
 export class TeamController {
-  constructor(private readonly teamService: TeamServices) {}
+  constructor(private readonly teamService: TeamService) {}
 
   async index(_req: Request, res: Response, next: NextFunction): Promise<void> {
     try {

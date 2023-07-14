@@ -1,8 +1,8 @@
 import { Express } from 'express';
 import DIContainer from 'rsdi';
 import { TeamController } from './controllers/teamController';
-import TeamServices from './services/teamServices';
-import { configureRoutes } from './routes/teams.routes';
+import { TeamService } from './service/teamService';
+import { configureRoutes } from './routes/teamRoute';
 
 function initTeamModule(app: Express, diContainer: DIContainer) {
   const teamController = diContainer.get(TeamController);
@@ -10,4 +10,4 @@ function initTeamModule(app: Express, diContainer: DIContainer) {
   configureRoutes(app, teamController);
 }
 
-export { initTeamModule, TeamController, TeamServices };
+export { initTeamModule, TeamController, TeamService };

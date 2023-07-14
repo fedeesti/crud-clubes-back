@@ -1,8 +1,8 @@
 import teams from '../../../../data/equipos.db.json';
-import { CreateTeamResponse, Team } from '../types/team';
+import { Team } from '../types/team';
 import { fromDataToEntity } from '../mapper/teamMapper';
 
-export default class TeamService {
+export class TeamService {
   teams: Team[];
 
   constructor() {
@@ -19,7 +19,7 @@ export default class TeamService {
     return team;
   }
 
-  async createTeam(teamData: CreateTeamResponse): Promise<string> {
+  async createTeam(teamData: Team): Promise<string> {
     const newTeam = fromDataToEntity(teamData);
     this.teams.push(newTeam);
 
