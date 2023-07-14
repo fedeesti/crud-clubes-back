@@ -1,5 +1,5 @@
-import teams from '../../data/equipos.db.json';
-import competitions from '../../data/competitions.json';
+import teams from '../../../../data/equipos.db.json';
+import competitions from '../../../../data/competitions.json';
 
 export function generateId(): number {
   const allTeamsId = teams.map((team) => team.id);

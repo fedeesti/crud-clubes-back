@@ -16,6 +16,7 @@ export interface Team {
 }
 
 interface Area {
-  id?: number;
+  id: number;
   name: string;
 }
+

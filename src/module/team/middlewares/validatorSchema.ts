@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { Result, validationResult } from 'express-validator';
-import ValidationError from '../models/validationError';
+import ValidationError from '../../error/validationError';
 
 export function validatorSchema(req: Request, _res: Response, next: NextFunction) {
   try {
